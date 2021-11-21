@@ -1,0 +1,48 @@
+<!--pages/courselist/courselist.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">课程</view>
+</cu-custom>
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="健康课堂">
+    <van-grid column-num="2" gutter="{{ 5 }}">
+      <van-grid-item use-slot wx:for="{{ cuList }}" wx:for-item="item" wx:key="index" custom-class="radius">
+        <view class="cu-card case">
+          <view class="cu-item shadow">
+            <view class="image">
+              <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
+            </view>
+            <view class="content" style="width: 100%;">
+              <view class="text-gray text-sm flex justify-between">
+                {{item.title}}
+                <view class="text-gray text-sm">
+                  <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.hits}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-grid-item>
+    </van-grid>
+  </van-tab>
+  <van-tab title="思维练习">
+    <van-grid column-num="2" gutter="{{ 5 }}">
+      <van-grid-item use-slot wx:for="{{ tsList }}" wx:for-item="item" wx:key="index" custom-class="radius">
+        <view class="cu-card case">
+          <view class="cu-item shadow">
+            <view class="image">
+              <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
+            </view>
+            <view class="content" style="width: 100%;">
+              <view class="text-gray text-sm flex justify-between">
+                {{item.title}}
+                <view class="text-gray text-sm">
+                  <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.hits}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-grid-item>
+    </van-grid></van-tab>
+</van-tabs>

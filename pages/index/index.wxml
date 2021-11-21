@@ -1,4 +1,6 @@
 <!--index.wxml-->
-<view class="container">
-  <van-button type="primary">按钮</van-button>
+<view class=" container flex solid-bottom padding justify-center align-center">
+<navigator url="/pages/courselist/courselist">
+  <van-button type="primary">模块一</van-button>
+</navigator>
 </view>

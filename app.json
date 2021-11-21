@@ -1,16 +1,34 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/courselist/courselist",
+
     "pages/logs/logs"
+    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "cu-custom": "/colorui/components/cu-custom",
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   }
 }
