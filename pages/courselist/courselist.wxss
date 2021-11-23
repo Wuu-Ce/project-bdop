@@ -3,3 +3,10 @@
   width: 100%;
   padding: 0;
 }
+
+.my-card{
+  width: 45%;
+  margin: 5px 3px 5px 3px;
+  border: solid 5px  #ffffff;
+  border-radius: 20px;
+}

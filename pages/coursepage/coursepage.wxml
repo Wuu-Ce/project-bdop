@@ -1,0 +1,6 @@
+<!--pages/coursepage/coursepage.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">课程</view>
+</cu-custom>
+<towxml nodes="{{testmd}}" />

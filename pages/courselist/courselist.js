@@ -9,12 +9,17 @@ Page({
       {
         title: '课程1',
         imgUrl:  '/resource/img/sample.png',
-        hits: 0,
+        hits: 112,
       },
       {
         title: '课程2',
         imgUrl:  '/resource/img/sample.png',
-        hits: 0,
+        hits: 14,
+      },
+      {
+        title: '课程3',
+        imgUrl:  '/resource/img/sample.png',
+        hits: 1,
       }
     ],
     tsList: [

@@ -1,6 +1,12 @@
 <!--index.wxml-->
 <view class=" container flex solid-bottom padding justify-center align-center">
-<navigator url="/pages/courselist/courselist">
-  <van-button type="primary">模块一</van-button>
+<navigator url="/pages/courselist/courselist" class="router">
+  <van-button plain hairline   type="primary"  block custom-style="height:80px;">课程与练习</van-button>
+</navigator>
+<navigator url="/pages/courselist/courselist" class="router">
+  <van-button plain hairline   type="primary"  block custom-style="height:80px;">模块二</van-button>
+</navigator>
+<navigator url="/pages/courselist/courselist" class="router">
+  <van-button plain hairline   type="primary"  block custom-style="height:80px;">模块三</van-button>
 </navigator>
 </view>
