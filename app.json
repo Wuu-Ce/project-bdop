@@ -1,9 +1,13 @@
 {
   "pages": [
+    "pages/course/courselist/courselist",
+    "pages/course/coursepage/coursepage",
+    "pages/guidance/guidancelist/guidancelist",
+    "pages/guidance/guidancepage/guidancepage",
+    "pages/guidance/menu/menu",
+    "pages/course/menu/menu",
     "pages/index/index",
-    "pages/courselist/courselist",
-    "pages/logs/logs",
-    "pages/coursepage/coursepage"
+    "pages/plan/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,22 +16,34 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "text": "课程列表",
+        "pagePath": "pages/course/courselist/courselist"
+      },
+      {
+        "text": "指导列表",
+        "pagePath": "pages/guidance/guidancelist/guidancelist"
+      },
+      {
+        "text": "个人计划",
+        "pagePath": "pages/plan/index/index"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom",
+    "cu-custom": "/components/nav/cu-custom",
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-image": "@vant/weapp/image/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index",
-    "van-nav-bar": "@vant/weapp/nav-bar/index",
-    "van-card": "@vant/weapp/card/index",
-    "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index"
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-loading": "@vant/weapp/loading/index"
   }
 }

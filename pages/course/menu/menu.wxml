@@ -1,0 +1,42 @@
+<!--pages/course/menu/menu.wxml-->
+<cu-custom bgColorV="#fed2fc" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">{{course.name}}</view>
+</cu-custom>
+
+<view class="cu-card case">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="/resource/img/sample.png" mode="scaleToFill"></image>
+      <view class="cu-tag bg-blue">完成</view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="flex-sub margin-lr-sm">
+          <view class="text-grey">简介</view>
+          <view class="text-grey text-sm">{{course.introduction}}</view>
+          <view class="text-gray text-sm flex justify-end">
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu">
+  <view wx:for="{{course.articles}}" wx:key="index" class="cu-item">
+    <button class="cu-btn bg-white  padding-lr-sm" style="width:100%;justify-content: space-between;" bindtap="toCoursePage" data-index="{{index}}">
+      <view>
+      <text class="cuIcon-crownfill text-yellow margin-lr-sm"></text>
+      <text class="text-grey text-lg">{{index+1}}. {{item.title}}</text>
+      </view>
+      <view class="action">
+        <!-- <view class="cu-tag round bg-cyan light margin-lr-sm">19条</view> -->
+        <text class="cuIcon-right text-cyan"></text>
+      </view>
+    </button>
+  </view>
+</view>

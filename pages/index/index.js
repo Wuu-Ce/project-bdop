@@ -4,6 +4,33 @@ const app = getApp()
 
 Page({
   data: {
+    cuList: [{
+      title: '课程1',
+      imgUrl: '/resource/img/sample.png',
+      hits: 112,
+    },
+    {
+      title: '课程2',
+      imgUrl: '/resource/img/sample.png',
+      hits: 14,
+    },
+    {
+      title: '课程3',
+      imgUrl: '/resource/img/sample.png',
+      hits: 1,
+    }
+  ],
+  tsList: [{
+      title: '练习1',
+      imgUrl: '/resource/img/sample.png',
+      hits: 0,
+    },
+    {
+      title: '练习2',
+      imgUrl: '/resource/img/sample.png',
+      hits: 0,
+    }
+  ],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -12,17 +39,25 @@ Page({
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
   // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad() {
+    this.getTabBar().setData({
+      active: 0
+    })
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
+  },
+  toTsPage() {
+    wx.navigateTo({
+      url: '/pages/guidancepage/guidancepage',
+    })
+  },
+  toCuPage() {
+    wx.navigateTo({
+      url: '/pages/coursepage/coursepage',
+    })
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "nav": "/components/nav/cu-custom"
+    "nav": "/components/nav/cu-custom",
+    "tabbar": "/custom-tab-bar/index"
   }
 }

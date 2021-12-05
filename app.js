@@ -29,6 +29,7 @@ App({
     })
   },
   globalData: {
+    tabbarIndex: 0,
     userInfo: null
   }
 })

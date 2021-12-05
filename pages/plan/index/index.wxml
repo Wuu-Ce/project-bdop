@@ -1,0 +1,5 @@
+<!--pages/plan/index/index.wxml-->
+<cu-custom bgColorV="#fed2fc" isBack="{{false}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">个人计划</view>
+</cu-custom>

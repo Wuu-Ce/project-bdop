@@ -7,10 +7,15 @@ Component({
     addGlobalClass: true,
     multipleSlots: true
   },
+
   /**
    * 组件的对外属性
    */
   properties: {
+    bgColorV:{
+      type: String,
+      default: ''
+    },
     bgColor: {
       type: String,
       default: ''
@@ -47,7 +52,7 @@ Component({
     },
     toHome(){
       wx.reLaunch({
-        url: '/pages/index/index',
+        url: '/pages/course/courselist/courselist',
       })
     }
   }

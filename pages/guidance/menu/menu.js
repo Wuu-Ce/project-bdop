@@ -1,46 +1,21 @@
-// pages/courselist/courselist.js
+// pages/guidance/menu/menu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cuList: [
-      {
-        title: '课程1',
-        imgUrl:  '/resource/img/sample.png',
-        hits: 112,
-      },
-      {
-        title: '课程2',
-        imgUrl:  '/resource/img/sample.png',
-        hits: 14,
-      },
-      {
-        title: '课程3',
-        imgUrl:  '/resource/img/sample.png',
-        hits: 1,
-      }
-    ],
-    tsList: [
-      {
-        title: '练习1',
-        imgUrl:  '/resource/img/sample.png',
-        hits: 0,
-      },
-      {
-        title: '练习2',
-        imgUrl:  '/resource/img/sample.png',
-        hits: 0,
-      }
-    ]
+    guidance: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const index = options.selector
+    this.setData({
+      guidance: getCurrentPages()[getCurrentPages().length-2].data.list[index]
+    })
   },
 
   /**
@@ -90,5 +65,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  toGuidPage(e) {
+    wx.navigateTo({
+      url: '/pages/guidance/guidancepage/guidancepage?selector=' + e.currentTarget.dataset.index,
+    })
   }
 })

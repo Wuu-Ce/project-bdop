@@ -5,6 +5,18 @@
   flex-direction: column;
 }
 .router{
-  width:80%;
+  width:100%;
   padding: 20px 0px  20px 0px;
+}
+
+.cu-card{
+  width: 100%;
+  padding: 0;
+}
+
+.my-card{
+  width: 45%;
+  margin: 5px 3px 5px 3px;
+  border: solid 5px  #ffffff;
+  border-radius: 20px;
 }

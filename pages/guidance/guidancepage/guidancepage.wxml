@@ -1,0 +1,4 @@
+<!--pages/guidancepage/guidancepage.wxml-->
+<cu-custom bgColorV="#e07c9e" isCustom="{{true}}" class="text-white" >
+  <view slot="content">{{project.title}}</view>
+</cu-custom>

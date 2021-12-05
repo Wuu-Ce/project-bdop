@@ -1,12 +1,52 @@
-<!--index.wxml-->
-<view class=" container flex solid-bottom padding justify-center align-center">
-<navigator url="/pages/courselist/courselist" class="router">
-  <van-button plain hairline   type="primary"  block custom-style="height:80px;">课程与练习</van-button>
-</navigator>
-<navigator url="/pages/courselist/courselist" class="router">
-  <van-button plain hairline   type="primary"  block custom-style="height:80px;">模块二</van-button>
-</navigator>
-<navigator url="/pages/courselist/courselist" class="router">
-  <van-button plain hairline   type="primary"  block custom-style="height:80px;">模块三</van-button>
-</navigator>
-</view>
+<!--pages/courselist/courselist.wxml-->
+<cu-custom bgColorV="#fed2fc" isBack="{{false}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">孕产快乐旅程</view>
+</cu-custom>
+<van-tabs active="{{ active }}" >
+  <van-tab title="健康课堂">
+    <van-grid column-num="2.1">
+        <van-grid-item use-slot wx:for="{{ cuList }}" wx:for-item="item" wx:key="index" custom-class="my-card">
+          <view class="cu-card case" bindtap="toCuPage">
+            <view class="cu-item shadow">
+              <view class="image">
+                <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
+              </view>
+              <view class="content" style="width: 100%;">
+                <view class="text-gray text-lg flex justify-between">
+                  {{item.title}}
+                  <view class="text-gray text-lg">
+                    <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.hits}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </van-grid-item>
+    </van-grid>
+  </van-tab>
+
+  <van-tab title="思维练习">
+    <van-grid column-num="2.1">
+
+      <van-grid-item use-slot wx:for="{{ tsList }}" wx:for-item="item" wx:key="index" custom-class="my-card">
+        <view class="cu-card case" bindtap="toTsPage">
+          <view class="cu-item shadow">
+            <view class="image">
+              <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
+            </view>
+            <view class="content" style="width: 100%;">
+              <view class="text-gray text-lg flex justify-between">
+                {{item.title}}
+                <view class="text-gray text-lg">
+                  <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.hits}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-grid-item>
+
+    </van-grid>
+  </van-tab>
+</van-tabs>
