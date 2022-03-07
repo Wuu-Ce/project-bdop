@@ -5,9 +5,9 @@
 </cu-custom>
 
 <view class="cu-card case">
-  <view class="cu-item shadow">
+  <view class="cu-item shadow bg-grey">
     <view class="image">
-      <image src="/resource/img/sample.png" mode="scaleToFill"></image>
+      <image src="{{course.imgUrl}}" mode="scaleToFill"></image>
       <view class="cu-tag bg-blue">完成</view>
     </view>
     <view class="cu-list menu-avatar">
@@ -26,11 +26,11 @@
   </view>
 </view>
 
-<view class="cu-list menu">
-  <view wx:for="{{course.articles}}" wx:key="index" class="cu-item">
+<view class="cu-list menu shadow bg-grey">
+  <view wx:for="{{course.projects}}" wx:key="index" class="cu-item">
     <button class="cu-btn bg-white  padding-lr-sm" style="width:100%;justify-content: space-between;" bindtap="toCoursePage" data-index="{{index}}">
       <view>
-      <text class="cuIcon-crownfill text-yellow margin-lr-sm"></text>
+      <text class="cuIcon-form text-yellow margin-lr-sm"></text>
       <text class="text-grey text-lg">{{index+1}}. {{item.title}}</text>
       </view>
       <view class="action">

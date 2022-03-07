@@ -1,21 +1,20 @@
-// pages/guidance/menu/menu.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    guidance: null,
+    srcollHeight: 0
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const index = options.selector
-
     this.setData({
-      guidance: getCurrentPages()[getCurrentPages().length-2].data.list[index]
+      srcollHeight: app.globalData.systemInfo.windowHeight - app.globalData.CustomBar
     })
   },
 
@@ -23,14 +22,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(this.data.guidance)
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -67,16 +65,4 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  toNextPage(e) {
-    const index = e.currentTarget.dataset.index
-    if(this.data.guidance.projects[index].type == 'text'){
-          wx.navigateTo({
-      url: '/pages/guidance/guidancepage/guidancepage?selector=' + index,
-    })
-    }else if(this.data.guidance.projects[index].type == 'video')
-    wx.navigateTo({
-      url: '/pages/guidance/player/player?selector=' + index,
-    })
-  }
 })

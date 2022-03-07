@@ -1,4 +1,5 @@
 // pages/guidancepage/guidancepage.js
+const app = getApp()
 Page({
 
   /**
@@ -13,10 +14,32 @@ Page({
    */
   onLoad: function (options) {
     const index = options.selector
+    const project = getCurrentPages()[getCurrentPages().length-2].data.guidance.projects[index]
     this.setData({
-      project: getCurrentPages()[getCurrentPages().length-2].data.guidance.projects[index]
+      project: project
     })
     console.log(this.data.project)
+    const that = this
+    wx.request({
+      url: this.data.project.url,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+        let result = app.towxml(res.data, 'markdown', {
+          base: '', // 相对资源的base路径
+          theme: 'light', // 主题，默认`light`
+          events: { // 为元素绑定的事件方法
+            // tap: (e) => {
+            //   console.log('tap', e);
+            // }
+          }
+        })
+        that.setData({
+          md: result
+        })
+      }
+    })
   },
 
   /**

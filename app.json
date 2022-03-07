@@ -6,8 +6,10 @@
     "pages/guidance/guidancepage/guidancepage",
     "pages/guidance/menu/menu",
     "pages/course/menu/menu",
-    "pages/index/index",
-    "pages/plan/index/index"
+    "pages/plan/index/index",
+    "pages/guidance/player/player",
+    "pages/plan/createPlan/creatPlan",
+    "pages/plan/expectation/expectation"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -43,7 +45,6 @@
     "van-col": "@vant/weapp/col/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-loading": "@vant/weapp/loading/index"
+    "van-cell-group": "@vant/weapp/cell-group/index"
   }
 }

@@ -1,5 +1,22 @@
 <!--pages/plan/index/index.wxml-->
 <cu-custom bgColorV="#fed2fc" isBack="{{false}}" style="margin-top: 50px;">
-  <view slot="backText">返回</view>
   <view slot="content">个人计划</view>
 </cu-custom>
+
+<view class="cu-bar bg-white solid-bottom margin-top" bindtap="toCreatPlanPage">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange '></text> 我的个人计划
+  </view>
+  <view class='action'>
+    <text class="cuIcon-right"></text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top" bindtap="toExpectationPage">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange '></text> 我的分娩预期
+  </view>
+  <view class='action'>
+    <text class="cuIcon-right"></text>
+  </view>
+</view>

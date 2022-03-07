@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     const index = options.selector
     this.setData({
-      article: getCurrentPages()[getCurrentPages().length-2].data.course.articles[index]
+      article: getCurrentPages()[getCurrentPages().length-2].data.course.projects[index]
     })
     const that = this
     wx.request({
@@ -25,7 +25,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: (res) => {
-        console.log(res);
+        console.log(res)
         let result = app.towxml(res.data, 'markdown', {
           base: '', // 相对资源的base路径
           theme: 'light', // 主题，默认`light`

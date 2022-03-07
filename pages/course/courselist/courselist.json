@@ -3,6 +3,8 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-notify": "@vant/weapp/notify/index"
   }
 }

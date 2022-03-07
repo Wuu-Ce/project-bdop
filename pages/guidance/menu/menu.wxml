@@ -5,9 +5,9 @@
 </cu-custom>
 
 <view class="cu-card case">
-  <view class="cu-item shadow">
+  <view class="cu-item shadow bg-grey">
     <view class="image">
-      <image src="/resource/img/sample.png" mode="scaleToFill"></image>
+      <image src="{{guidance.imgUrl}}" mode="scaleToFill"></image>
     </view>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
@@ -25,11 +25,11 @@
   </view>
 </view>
 
-<view class="cu-list menu">
+<view class="cu-list menu shadow bg-grey">
   <view wx:for="{{guidance.projects}}" wx:key="index" class="cu-item">
-    <button class="cu-btn bg-white  padding-lr-sm" style="width:100%;justify-content: space-between;" bindtap="toGuidPage" data-index="{{index}}">
+    <button class="cu-btn bg-white  padding-lr-sm" style="width:100%;justify-content: space-between;" bindtap="toNextPage" data-index="{{index}}">
       <view>
-      <text class="cuIcon-crownfill text-yellow margin-lr-sm"></text>
+      <text class="cuIcon-hotfill text-yellow margin-lr-sm"></text>
       <text class="text-grey text-lg">{{index+1}}. {{item.title}}</text>
       </view>
       <view class="action">

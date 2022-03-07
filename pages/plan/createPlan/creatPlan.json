@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "richedit": "/components/richedit/richedit"
+  }
+}

@@ -3,11 +3,10 @@
   width: 100%;
   padding: 0;
 }
-
+.van-grid-item__content {
+  border-radius: 10px;
+}
 .my-card{
-  width: 45%;
-  margin: 5px 3px 5px 3px;
-  border: solid 5px  #ffffff;
-  background-color:  #ffffff;
-  border-radius: 20px;
+  margin: 0px 0px 10px 5px;
+  border-radius: 10px;
 }

@@ -29,7 +29,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    const index0 = parseInt(options.index0)
+    const index1 = parseInt(options.index1)
+    console.log(getCurrentPages()[getCurrentPages().length-2].data.list[index0].items[index1])
+    this.setData({
+      course: getCurrentPages()[getCurrentPages().length-2].data.list[index0].items[index1]
+    })
   },
 
   /**

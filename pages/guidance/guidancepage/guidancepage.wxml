@@ -2,3 +2,7 @@
 <cu-custom bgColorV="#e07c9e" isCustom="{{true}}" class="text-white" >
   <view slot="content">{{project.title}}</view>
 </cu-custom>
+<view wx:if="{{md==''}}" class=" container flex padding justify-center align-center">
+  <van-loading type="circular"  text-size="15px"  vertical>加载中...</van-loading>
+</view>
+<towxml nodes="{{md}}" />

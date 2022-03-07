@@ -1,11 +1,16 @@
-// pages/guidance/menu/menu.js
+const { Idot } = require("../../../towxml/parse/parse2/entities/maps/entities")
+
+// pages/guidance/player/player.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    guidance: null,
+    media: {
+      projects:[]
+    },
+    mediaUrl: '',
   },
 
   /**
@@ -13,17 +18,28 @@ Page({
    */
   onLoad: function (options) {
     const index = options.selector
-
-    this.setData({
-      guidance: getCurrentPages()[getCurrentPages().length-2].data.list[index]
-    })
+     let media1 = getCurrentPages()[getCurrentPages().length - 2].data.guidance.projects[index]
+    if(media1.url == undefined)
+    {
+      this.setData({
+        media: media1,
+        mediaUrl: media1.musics[0].url
+      })      
+    }
+    else{
+      this.setData({
+        media: media1,
+        mediaUrl: media1.url
+      }) 
+    }
+    console.log(this.data.media)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(this.data.guidance)
+
   },
 
   /**
@@ -67,16 +83,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  toNextPage(e) {
+  Play(e) {
     const index = e.currentTarget.dataset.index
-    if(this.data.guidance.projects[index].type == 'text'){
-          wx.navigateTo({
-      url: '/pages/guidance/guidancepage/guidancepage?selector=' + index,
-    })
-    }else if(this.data.guidance.projects[index].type == 'video')
-    wx.navigateTo({
-      url: '/pages/guidance/player/player?selector=' + index,
+    const url = this.data.media.musics[index].url
+    this.setData({
+      mediaUrl: url
     })
   }
 })

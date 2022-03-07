@@ -1,0 +1,30 @@
+<!--pages/guidance/player/player.wxml-->
+<cu-custom bgColorV="#fed2fc" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">{{media.title}}</view>
+</cu-custom>
+
+<view class="cu-card case flex justify-center">
+  <view class="cu-item shadow bg-grey" style="width: 100%;margin: 30rpx 5rpx 30rpx 5rpx;">
+  <video id="myVideo" src="{{mediaUrl}}" danmu-list="{{danmuList}}" controls style="width: 100%;"></video>
+  </view>
+</view>
+
+<view class="cu-card case justify-center">
+<view class="cu-item cu-list menu shadow bg-grey">
+  <view wx:for="{{media.musics}}" wx:key="index" class="cu-item">
+    <button class="cu-btn bg-white  padding-lr-sm" style="width:100%;justify-content: space-between;" bindtap="Play" data-index="{{index}}">
+      <view>
+        <van-icon name="live" size="20px"/>
+      <!-- <text class="cuIcon-hotfill text-yellow margin-lr-sm"></text> -->
+      <text class="text-grey text-lg">{{index+1}}. {{item.title}}</text>
+      </view>
+      <view class="action">
+        <!-- <view class="cu-tag round bg-cyan light margin-lr-sm">19条</view> -->
+        <!-- <text class="cuIcon-right text-cyan"></text> -->
+      </view>
+    </button>
+  </view>
+</view>
+</view>
+

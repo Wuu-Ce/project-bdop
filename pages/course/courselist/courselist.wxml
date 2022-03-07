@@ -3,45 +3,52 @@
   <view slot="backText">返回</view>
   <view slot="content">孕产快乐旅程</view>
 </cu-custom>
-<van-tabs active="{{ active }}">
-  <van-tab title="健康课堂">
-    <van-grid column-num="2.1">
-      <van-grid-item use-slot wx:for="{{ cuList }}" wx:for-item="item" wx:key="index" custom-class="my-card">
-        <view class="cu-card case" bindtap="toMenu">
-          <view class="cu-item shadow" style="margin: 0 0 0 0;">
-            <view class="image">
-              <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
-            </view>
-            <view class="flex text-gray text-sm justify-between" style="width: 100%;">
-              <view class="text-gray text-lg">{{item.title}}</view>
-              <view class="margin-tb-xs text-sm">
-                <text class="cuIcon-attentionfill "></text> {{item.hits}}
+
+<van-tabs 
+animated 
+active="{{ tabActive }}" 
+title-active-color="#fea3a2" 
+custom-class="fixed"
+>
+  <van-tab 
+  wx:for="{{list}}" 
+  wx:key="index0" 
+  wx:for-item="item0" 
+  title="{{item0.title}}"
+  >
+    <scroll-view 
+    slot="" 
+    scroll-y 
+    style="height: {{tabContainerHeight}}px;" 
+    capture-bind:touchstart="touchStart"
+    capture-bind:touchmove="touchMove"
+    capture-bind:touchend="touchEnd"
+    >
+    <van-notify id="van-notify" >test</van-notify>
+      <van-grid column-num="2.1">
+        <van-grid-item 
+        use-slot 
+        wx:for="{{ item0.items }}" 
+        wx:for-item="item1" 
+        wx:key="index1" 
+        custom-class="my-card shadow bg-grey"
+        >
+          <view slot="" class="cu-card case" bindtap="toMenu" data-index="{{index}}">
+            <view class="cu-item" style="margin: 0 0 0 0;">
+              <view class="image">
+                <image style="width: 100%; height: 50vw;" src="{{item1.imgUrl}}" mode="aspectFit"></image>
+              </view>
+              <view class="flex text-gray text-sm justify-between" style="width: 100%;">
+                <view class="text-gray text-lg">{{item1.name}}</view>
+                <view class="margin-tb-xs text-sm">
+                  <text class="cuIcon-attentionfill "></text> {{item1.hits}}
+                </view>
               </view>
             </view>
           </view>
-        </view>
-      </van-grid-item>
-    </van-grid>
-  </van-tab>
-
-  <van-tab title="思维练习">
-    <van-grid column-num="2.1">
-      <van-grid-item use-slot wx:for="{{ tsList }}" wx:for-item="item" wx:key="index" custom-class="my-card">
-        <view class="cu-card case" bindtap="toMenu">
-          <view class="cu-item shadow" style="margin: 0 0 0 0;">
-            <view class="image">
-              <image style="width: 100%; height: 50vw;" src="{{item.imgUrl}}" mode="aspectFit"></image>
-            </view>
-            <view class="flex text-gray text-sm justify-between" style="width: 100%;">
-              <view class="text-gray text-lg">{{item.title}}</view>
-              <view class="margin-tb-xs text-sm">
-                <text class="cuIcon-attentionfill "></text> {{item.hits}}
-              </view>
-            </view>
-          </view>
-        </view>
-      </van-grid-item>
-
-    </van-grid>
+        </van-grid-item>
+      </van-grid>
+      <view style="height: 500px;"></view>
+    </scroll-view>
   </van-tab>
 </van-tabs>

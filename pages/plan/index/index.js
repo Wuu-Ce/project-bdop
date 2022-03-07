@@ -64,5 +64,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  toCreatPlanPage() {
+    wx.navigateTo({
+      url: '/pages/plan/createPlan/creatPlan',
+    })
+  },
+  toExpectationPage() {
+    wx.navigateTo({
+      url: '/pages/plan/expectation/expectation',
+    })
   }
 })

@@ -9,54 +9,41 @@
 //   data: {
 //   },
 // })
-
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        name: '呼吸技巧重建',
-        introduction: '呼吸技巧重建的简介。',
-        imgUrl: '/resource/img/sample.png',
-        hits: 1,
-        projects:[
-          {
-            title: '拉玛泽呼吸减痛法',
-            url: ''
-          },
-          {
-            title: '拉玛泽呼吸',
-            url: ''
-          }
-        ]
-      },
-      {
-        name: '音乐放松疗法',
-        introduction: '音乐放松疗法的简介。',
-        imgUrl: '/resource/img/sample.png',
-        hits: 1,
-        projects:[
-          {
-            title: '中国古典音乐',
-            url: ''
-          },
-          {
-            title: '世界经典名曲',
-            url: ''
-          }
-        ]
-      }
-    ]
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this
+    wx.request({
+      url: app.globalData.http + '/article/',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        list: 3
+      },
+      success(res) {
+        if (res.data == Array) {
+          that.setData({
+            list: res.data
+          })
+        }
+      },
+      fail(e) {
+        console.log('get list1 fail')
+      }
+    })
   },
 
   /**

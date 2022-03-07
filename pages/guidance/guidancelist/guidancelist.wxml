@@ -5,7 +5,7 @@
 </cu-custom>
 
 <van-grid column-num="2.1">
-  <van-grid-item use-slot wx:for="{{ list }}" wx:key="index" custom-class="my-card">
+  <van-grid-item use-slot wx:for="{{ list }}" wx:key="index" custom-class="my-card shadow bg-grey">
     <view class="cu-card case" bindtap="toMenu" data-index="{{index}}">
       <view class="cu-item shadow"  style="margin: 0 0 0 0;">
         <view class="image">
