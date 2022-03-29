@@ -1,5 +1,5 @@
 <!--pages/courselist/courselist.wxml-->
-<cu-custom bgColorV="#fed2fc" isBack="{{false}}" style="margin-top: 50px;">
+<cu-custom bgColorV="#eee5f8" isBack="{{false}}" style="margin-top: 50px;">
   <view slot="backText">返回</view>
   <view slot="content">孕产快乐旅程</view>
 </cu-custom>

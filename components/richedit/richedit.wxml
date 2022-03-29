@@ -1,7 +1,7 @@
 <view style="min-height: 320rpx;">
   <textarea wx:if="{{isEdit}}" class='input_view' maxlength='-1' auto-height='true' bindinput='_inputCon' value='{{firstCon}}' placeholder='写点什么...' focus='{{focusList[0].focus}}' bindblur="_outBlur" style='width:{{width-20}}px; ' data-index='0' />
   <view wx:if="{{!isEdit}}" bindtap='_focusView' class='input_view2 text-gray' data-index='0'>{{firstCon||"写点什么..."}}</view>
-  <view wx:for="{{dataList}}" wx:key="{{index}}">
+  <view wx:for="{{dataList}}" wx:key="index">
     <view class='img_view' style='height:{{width/2}}px;'>
       <image src='{{item.img}}' mode='aspectFill' />
       <x-icon position='close_img' slot="leftIcon" color='danger' bind:click="_deletedImg" bindData="{{index}}" type='clear'></x-icon>
@@ -10,13 +10,21 @@
     <view wx:if="{{!isEdit}}" bindtap='_focusView' class='input_view2 text-gray' data-index='{{index+1}}'>{{item.info||'写点什么...'}}</view>
   </view>
 </view>
-<view class='add-img'>
-  <view class='circle_center_view text-xxl' bindtap='_addImg'>
-    <text class=" cuIcon-pic text-bold"></text>
+
+  <view class='text-sub ' bindtap='_saveRichText'>
+    <button class=" btn margin-tb margin-lr-xl text-pink">保存</button>
   </view>
-</view>
-<view class='save'>
-  <view class='circle_center_vie text-xxl ' bindtap='_saveRichText'>
-    <text class=" cuIcon-file text-bold"></text>
+
+  <view class="cu-modal {{modal==true?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      保存成功。
+    </view>
   </view>
 </view>

@@ -1,0 +1,27 @@
+<!--pages/courselist/courselist.wxml-->
+<cu-custom bgColorV="#eee5f8" isBack="{{false}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">孕产快乐旅程</view>
+</cu-custom>
+
+<van-tabs animated active="{{ tabActive }}" title-active-color="#7a7281" color="#7a7281">
+  <van-tab wx:for="{{list}}" wx:key="index0" wx:for-item="item0" title="{{item0.title}}">
+    <scroll-view slot="" scroll-y style="height: {{tabContainerHeight}}px;" capture-bind:touchstart="touchStart" capture-bind:touchmove="touchMove" capture-bind:touchend="touchEnd"> 
+      <van-grid column-num="2">
+        <van-grid-item use-slot wx:for="{{ item0.items }}" wx:for-item="item1" wx:key="index1" content-class="redLight">
+          <view slot="" class="cu-card case text-black shadow-warp" bindtap="toMenu" data-index="{{index}}" style="border-radius: 15rpx; border: 1rpx solid rgba(61, 59, 59, 0.2);">
+            <view class="cu-item " style="margin: 0 0 0 0;">
+              <view class="image">
+                <image style="height: 300rpx;" class="solid-bottom" src="{{item1.imgUrl}}" mode="aspectFill" ></image>
+              </view>
+              <view class="text-lg padding-sm flex align-center" style="height: 96rpx;">{{item1.name}}</view>
+              <view class="text-sm padding-lr-sm margin-bottom-sm flex justify-end">
+                <text class="cuIcon-attentionfill "></text> {{item1.hits}}
+              </view>
+            </view>
+          </view>
+        </van-grid-item>
+      </van-grid>
+    </scroll-view>
+  </van-tab>
+</van-tabs>

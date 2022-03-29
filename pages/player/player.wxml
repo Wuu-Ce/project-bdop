@@ -1,5 +1,5 @@
 <!--pages/guidance/player/player.wxml-->
-<cu-custom bgColorV="#fed2fc" isBack="{{true}}" style="margin-top: 50px;">
+<cu-custom bgColorV="#eee5f8" isBack="{{true}}" style="margin-top: 50px;">
   <view slot="backText">返回</view>
   <view slot="content">{{media.title}}</view>
 </cu-custom>

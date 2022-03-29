@@ -1,10 +1,12 @@
 // pages/plan/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo:{},
 
   },
 
@@ -12,6 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
 
   },
 
@@ -65,6 +70,8 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+
   toCreatPlanPage() {
     wx.navigateTo({
       url: '/pages/plan/createPlan/creatPlan',
@@ -73,6 +80,11 @@ Page({
   toExpectationPage() {
     wx.navigateTo({
       url: '/pages/plan/expectation/expectation',
+    })
+  },
+  toQuestionMenuPage() {
+    wx.navigateTo({
+      url: '/pages/plan/questionMenu/questionMenu',
     })
   }
 })

@@ -7,25 +7,30 @@ Page({
    */
   data: {
     md: '',
-    article: null
+    article: null,
+    containerH: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const index = options.selector
+   const that = this
+   const prePage =getCurrentPages()[getCurrentPages().length-2]
     this.setData({
-      article: getCurrentPages()[getCurrentPages().length-2].data.course.projects[index]
+      containerH: app.globalData.systemInfo.windowHeight - app.globalData.CustomBar
     })
-    const that = this
+    const index = options.index
+    this.setData({
+      article: prePage.data.menu.projects[index]
+    })
+
     wx.request({
       url: this.data.article.url,
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: (res) => {
-        console.log(res)
         let result = app.towxml(res.data, 'markdown', {
           base: '', // 相对资源的base路径
           theme: 'light', // 主题，默认`light`

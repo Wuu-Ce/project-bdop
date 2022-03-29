@@ -1,49 +1,37 @@
-// Component({
-//   pageLifetimes: {
-//     show() {
-//       this.getTabBar().setData({
-//         active: 1
-//       });
-//     }
-//   },
-//   data: {
-//   },
-// })
-const app = getApp()
+const { Idot } = require("../../towxml/parse/parse2/entities/maps/entities")
+
+// pages/guidance/player/player.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: []
+    media: {
+      projects:[]
+    },
+    mediaUrl: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this
-    wx.request({
-      url: app.globalData.http + '/article/',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        list: 3
-      },
-      success(res) {
-        if (res.data == Array) {
-          that.setData({
-            list: res.data
-          })
-        }
-      },
-      fail(e) {
-        console.log('get list1 fail')
-      }
-    })
+    const index = options.index
+     let media1 = getCurrentPages()[getCurrentPages().length - 2].data.menu.projects[index]
+    if(media1.url == undefined)
+    {
+      this.setData({
+        media: media1,
+        mediaUrl: media1.musics[0].url
+      })      
+    }
+    else{
+      this.setData({
+        media: media1,
+        mediaUrl: media1.url
+      }) 
+    }
   },
 
   /**
@@ -57,9 +45,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getTabBar().setData({
-      active: 1
-    })
+
   },
 
   /**
@@ -96,9 +82,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toMenu(e) {
-    wx.navigateTo({
-      url: '/pages/guidance/menu/menu?selector=' + e.currentTarget.dataset.index,
+  Play(e) {
+    const index = e.currentTarget.dataset.index
+    const url = this.data.media.musics[index].url
+    this.setData({
+      mediaUrl: url
     })
   }
 })

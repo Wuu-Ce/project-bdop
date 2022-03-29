@@ -1,38 +1,37 @@
-const { Idot } = require("../../../towxml/parse/parse2/entities/maps/entities")
-
-// pages/guidance/player/player.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    media: {
-      projects:[]
-    },
-    mediaUrl: '',
+    containerH: app.globalData.systemInfo.windowHeight - app.globalData.CustomBar,
+    menu: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const index = options.selector
-     let media1 = getCurrentPages()[getCurrentPages().length - 2].data.guidance.projects[index]
-    if(media1.url == undefined)
+    const from = options.from
+    const index = parseInt(options.index)
+    const prePage = getCurrentPages()[getCurrentPages().length-2]
+    if(from == 'course')
+    {
+        this.setData({
+          menu: prePage.data.course[index]
+        })
+    }else if(from == 'test')
     {
       this.setData({
-        media: media1,
-        mediaUrl: media1.musics[0].url
-      })      
-    }
-    else{
+        menu: prePage.data.test[index]
+      })
+    } else if(from == 'guidance')
+    {
       this.setData({
-        media: media1,
-        mediaUrl: media1.url
-      }) 
+        menu: prePage.data.list[index]
+      })
     }
-    console.log(this.data.media)
   },
 
   /**
@@ -83,11 +82,15 @@ Page({
   onShareAppMessage: function () {
 
   },
-  Play(e) {
+  toNextPage(e) {
     const index = e.currentTarget.dataset.index
-    const url = this.data.media.musics[index].url
-    this.setData({
-      mediaUrl: url
+    if(this.data.menu.projects[index].type == 'text'){
+          wx.navigateTo({
+      url: '/pages/text/coursepage?index=' + index,
+    })
+    }else if(this.data.menu.projects[index].type == 'video')
+    wx.navigateTo({
+      url: '/pages/player/player?index=' + index,
     })
   }
 })

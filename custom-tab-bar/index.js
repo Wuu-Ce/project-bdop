@@ -14,12 +14,12 @@ Component({
     list: [{
         text: '首页',
         icon: 'wap-home',
-        path: "/pages/course/courselist/courselist"
+        path: "/pages/courselist/courselist"
       },
       {
         text: '行为指导',
         icon: 'umbrella-circle',
-        path: '/pages/guidance/guidancelist/guidancelist'
+        path: '/pages/guidancelist/guidancelist'
       },
       {
         text: '个人计划',

@@ -1,0 +1,117 @@
+<!-- <view class="">
+  <question wx:for="{{questionnaire.questions}}" wx:for-item="qs" wx:key="index" question="{{qs}}"></question>
+</view> -->
+
+<view id="container">
+  <cu-custom bgColorV="#eee5f8" isBack="{{true}}" style="margin-top: 50px;">
+    <view slot="backText">个人计划</view>
+    <view slot="content">问卷评估</view>
+  </cu-custom>
+  <view class="cu-card case ">
+    <view class="padding cu-item cu-form-grup shadow bg-grey  text-center text-xxl text-black text-blod " style="margin: 20rpx 20rpx 0 20rpx;">
+      问卷-{{questionnaire.name}}
+    </view>
+  </view>
+
+  <form>
+    <view class="cu-card case" wx:for="{{questionnaire.questions}}" wx:for-item="question" wx:for-index="qindex" wx:key="index">
+      <view class="padding cu-item cu-form-grup shadow bg-gray" style="margin: 20rpx 20rpx 0 20rpx;">
+        <view class="flex justify-between">
+          <view class="text-lg title">{{question.name}}</view>
+          <text class="{{question.fined?'cuIcon-roundcheckfill':'cuIcon-roundcheck'}} {{question.fined?'text-pink':'text-gray'}} " style="font-size: 36rpx;"></text>
+        </view>
+        <!-- 选择题选项 -->
+        <radio-group wx:if="{{question.type=='select'}}" bindchange="radioChange" data-qindex="{{qindex}}">
+          <view class="padding-top-sm" wx:for="{{question.options}}" wx:for-item="option" wx:key="option">
+            <radio class="margin-lr-sm pink text-sm {{question.answer ==option.value?'text-pink':''}}" value="{{option.value}}" disabled="{{question.answer ==option.value?'':disable}}" checked="{{question.answer ==option.value}}">
+              <view class="margin-lr text-lg">{{option.name}}</view>
+            </radio>
+          </view>
+        </radio-group>
+
+        <!-- 滑动选择题选项 -->
+        <view wx:if="{{question.type=='extent'}}" class="text-pink margin-top">
+          <view class="flex justify-between align-center">
+            <view class="margin-xs">{{question.options[0]}}</view>
+            <view class="margin-xs">{{question.options[1]}}</view>
+          </view>
+          <view class="component-slider">
+            <!-- 覆盖slider组件盒子 -->
+            <view class="slider-box">
+              <!-- 拖动按钮 -->
+              <view class="slider-btn" style="margin-left: {{ (question.value-question.min)*(102/(question.max-question.min))-7 }}%;"></view>
+              <!-- 未选中区线 -->
+              <view class="slider-line"></view>
+              <!-- 选中区线 -->
+              <view class="slider-line-active" style="width: {{ (question.value-question.min)*(102/(question.max-question.min))-7 }}%;"></view>
+              <!-- 显示数字 -->
+              <view class="slider-number">
+                <!-- 最小限制大于等于0 -->
+                <block wx:if="{{question.min>=0}}">
+                  <block wx:for="{{question.max+1}}" wx:key="index" wx:for-item="item">
+                    <text class="{{question.value==item?'active':''}}" style="left:{{ (item-question.min)*(100/(question.max-question.min))-2 }}%">{{item}}</text>
+                  </block>
+                </block>
+                <!-- 最小限制小于0 -->
+                <block wx:else>
+                  <block wx:for="{{(question.max-question.min)+1}}" wx:key="index">
+                    <text class="{{question.value==(item+question.min)?'active':''}}" style="left:{{ (item)*(102/(question.max-question.min))-2 }}%">{{item+question.min}}</text>
+                  </block>
+                </block>
+              </view>
+            </view>
+            <!-- slider组件 -->
+            <slider block-size="28" bindchange="sliderchange" bindchanging="sliderchanging" min="{{question.min}}" max="{{question.max}}" value="{{question.value}}" data-qindex="{{qindex}}" disabled="{{disable}}"></slider>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
+
+
+<!-- 提交按钮 -->
+<view class="flex justify-around align-end" style="height: {{BtnH}}px;">
+  <button wx:if="{{disable}}" class="margin btn bg-purple text-black" bindtap="showModal" data-id="btn1">再次填写</button>
+  <button class="margin btn bg-purple text-black" bindtap="showModal" disabled="{{disable}}" style="width: {{disable?'':90}}%;">提交问卷</button>
+</view>
+
+
+<!-- Modal模态框 -->
+<view class="cu-modal {{DialogModal==true?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="ModalCancel" data-id="modal1">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      {{DialogModalT}}
+    </view>
+    <view class="cu-bar bg-white justify-around">
+      <button class="cu-btn line-black" bindtap="ModalCancel" data-id="modal1" style="width: 40%;">取消</button>
+      <button class="cu-btn line-pink margin-left" bindtap="ModalOK" data-id="modal1" style="width: 40%;">确定</button>
+    </view>
+  </view>
+</view>
+
+<!-- Modal模态框 -->
+<view class="cu-modal {{DialogModal1==true?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="ModalCancel">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      此操作会删除问卷填写记录，是否继续?
+    </view>
+    <view class="cu-bar bg-white justify-around">
+      <button class="cu-btn line-black" bindtap="ModalCancel" style="width: 40%;">取消</button>
+      <button class="cu-btn line-pink margin-left" bindtap="ModalOK" style="width: 40%;">确定</button>
+    </view>
+  </view>
+</view>

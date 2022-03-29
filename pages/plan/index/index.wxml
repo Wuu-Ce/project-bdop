@@ -1,22 +1,41 @@
 <!--pages/plan/index/index.wxml-->
-<cu-custom bgColorV="#fed2fc" isBack="{{false}}" style="margin-top: 50px;">
+<cu-custom bgColorV="#eee5f8" isBack="{{false}}" style="margin-top: 50px;">
   <view slot="content">个人计划</view>
 </cu-custom>
 
-<view class="cu-bar bg-white solid-bottom margin-top" bindtap="toCreatPlanPage">
-  <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 我的个人计划
-  </view>
-  <view class='action'>
-    <text class="cuIcon-right"></text>
+<view class="cu-card case ">
+  <view class="padding margin-lr-lg cu-item  shadow text-center text-lg text-black" style="background-color: #ece9f0;">
+    <view class="cu-avatar round lg" style="background-image:url({{userInfo.avatarUrl}});"></view>
+    <view class="content flex-sub">
+      <view class="margin text-grey">{{userInfo.nickName}}</view>
+    </view>
   </view>
 </view>
 
-<view class="cu-bar bg-white solid-bottom margin-top" bindtap="toExpectationPage">
+
+<view class="cu-bar bg-white shadow solid-bottom margin-top" bindtap="toCreatPlanPage">
   <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 我的分娩预期
+    <text class='cuIcon-time text-orange '></text> 我的个人计划
   </view>
   <view class='action'>
-    <text class="cuIcon-right"></text>
+    <text class="cuIcon-right text-origin"></text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white shadow solid-bottom margin-top" bindtap="toExpectationPage">
+  <view class='action'>
+    <text class='cuIcon-edit text-orange '></text> 我的分娩预期
+  </view>
+  <view class='action'>
+    <text class="cuIcon-right text-origin"></text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white shadow solid-bottom margin-top" bindtap="toQuestionMenuPage">
+  <view class='action'>
+    <text class='cuIcon-form text-orange '></text> 问卷评估
+  </view>
+  <view class='action'>
+    <text class="cuIcon-right text-origin"></text>
   </view>
 </view>

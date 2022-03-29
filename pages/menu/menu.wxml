@@ -1,0 +1,42 @@
+<!--pages/course/menu/menu.wxml-->
+<cu-custom bgColorV="#eee5f8" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">{{menu.name}}</view>
+</cu-custom>
+<scroll-view scroll-y style="height: {{containerH}}px;">
+  <view class="cu-card case">
+    <view class="cu-item shadow-warp text-black solid">
+      <view class="image">
+        <image src="{{menu.imgUrl}}" mode="aspectFill" style="height: 600rpx;"></image>
+        <!-- <view class="cu-tag bg-blue">完成</view> -->
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="flex-sub margin-lr-sm">
+            <view class="margin-top text-xl">{{menu.name}}</view>
+            <view class=" text-sm flex justify-end">
+              <view class="text-sm">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> {{menu.hits}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-list menu shadow bg-grey">
+    <view wx:for="{{menu.projects}}" wx:key="index" class="cu-item" style="padding: 0 20rpx;">
+      <view class="flex justify-between bg-white" style="width:100%;" bindtap="toNextPage" data-index="{{index}}">
+        <view class="flex justify-start align-center">
+          <text class="cuIcon-form text-origin margin-right-xs"></text>
+          <text class="text-lg">{{index+1}}. {{item.title}}</text>
+        </view>
+        <view class="action">
+          <text class="cuIcon-right text-origin"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

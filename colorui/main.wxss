@@ -14,18 +14,22 @@ page {
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
 	--red: #e54d42;
-	--orange: #f37b1d;
-	--yellow: #fbbd08;
+	/* --orange: #f37b1d; */
+	--orange: #d8caaf;
+	/* --yellow: #fbbd08; */
+	--yellow: #cac3bb;
 	--olive: #8dc63f;
 	--green: #39b54a;
 	--cyan: #1cbbb4;
 	--blue: #0081ff;
-	--purple: #6739b6;
+	/* --purple: #6739b6; */
+	--purple: #dfd8e6;
 	--mauve: #9c26b0;
-	--pink: #e03997;
+	/* --pink: #e03997; */
+	--pink: #dd99d7;
 	--brown: #a5673f;
 	--grey: #8799a3;
-	--black: #333333;
+	--black: #7a7281;
 	--darkGray: #666666;
 	--gray: #aaaaaa;
 	--ghostWhite: #f1f1f1;
@@ -198,7 +202,7 @@ checkbox::before {
 	color: var(--white) !important;
 	top: 50%;
 	margin-top: -8px;
-	right: 5px;
+	left: 10rpx;
 	font-size: 32rpx;
 	line-height: 16px;
 	pointer-events: none;

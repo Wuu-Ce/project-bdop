@@ -1,0 +1,18 @@
+<!--pages/coursepage/coursepage.wxml-->
+<cu-custom bgColorV="#eee5f8" isCustom="{{true}}" class="text-white">
+  <view slot="backText">返回</view>
+</cu-custom>
+<view wx:if="{{md==''}}" class=" container flex padding justify-center align-center">
+  <van-loading type="circular" text-size="15px" vertical>加载中...</van-loading>
+</view>
+
+
+
+<scroll-view scroll-y style="height: {{containerH}}px;">
+  <!-- <view class="padding-sm text-xxl bg-white  text-black" wx:if="{{md!==''}}">
+    <view class='text-center text-bold'>
+      {{article.title}}
+    </view>
+  </view> -->
+  <towxml nodes="{{md}}" />
+</scroll-view>

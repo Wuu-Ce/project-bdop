@@ -1,0 +1,20 @@
+<!--pages/guidancelist/guidancelist.wxml-->
+<cu-custom bgColorV="#eee5f8" isBack="{{false}}" style="margin-top: 50px;">
+  <view slot="backText">返回</view>
+  <view slot="content">健康行为指导</view>
+</cu-custom>
+<van-grid column-num="2">
+  <van-grid-item use-slot wx:for="{{ list }}" wx:key="index" content-class="redLight">
+    <view slot="" class="cu-card case text-black bg-white shadow-warp" bindtap="toMenu" data-index="{{index}}" style="border-radius: 15rpx; border: 1rpx solid rgba(61, 59, 59, 0.2);">
+      <view class="cu-item " style="margin: 0 0 0 0;">
+        <view class="image">
+          <image style="height: 300rpx;" class="solid-bottom" src="{{item.imgUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class=" text-lg padding-sm flex align-center" style="height: 96rpx;">{{item.name}}</view>
+        <view class="text-sm padding-lr-sm margin-bottom-sm flex justify-end">
+          <text class="cuIcon-attentionfill "></text> {{item.hits}}
+        </view>
+      </view>
+    </view>
+  </van-grid-item>
+</van-grid>

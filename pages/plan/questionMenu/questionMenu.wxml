@@ -1,0 +1,26 @@
+<cu-custom bgColorV="#eee5f8" isBack="{{true}}" style="margin-top: 50px;">
+  <view slot="backText">个人计划</view>
+  <view slot="content">问卷评估</view>
+</cu-custom>
+
+<view class="cu-card case">
+  <view class="cu-item shadow shadow-lg bg-white">
+    <image src="https://pic2.zhimg.com/v2-a9263df20ade26088b0e2738561b6d16_1440w.jpg?source=172ae18b" mode="aspectFill" style="width: 100%;"></image>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="flex-sub margin-lr">
+          <view class="text-black text-xxl">问卷评估</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top shadow" wx:for="{{qList}}" wx:for-item="qItem" wx:key="qItem" data-qid="{{qItem.qid}}" bindtap="toQuestionnairePage">
+  <view class='action'>
+    <text class='cuIcon-form text-orange '></text> {{qItem.name}}
+  </view>
+  <view class='action'>
+    <text class="cuIcon-right"></text>
+  </view>
+</view>

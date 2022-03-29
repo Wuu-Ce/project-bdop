@@ -5,6 +5,16 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    currentPage: {
+      type: Object,
+      value: {},
+      observer(nv,ov,path) {
+        const page = this.data.currentPage
+        this.setData({
+          currentPage: page
+        })
+      }
+    },
     firstCon:{
       type:String,
       value:''
@@ -29,6 +39,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    modal: false,
     dataList:[],
     focusList:[{
       focus:false
@@ -41,6 +52,10 @@ Component({
   created(){
     let that = this;
     that.data.addImgView = that.selectComponent("#addimg");
+    this.setData({
+      firstCon: wx.getStorageInfoSync('myplan')
+    })
+
   },
   attached() { // 当组件挂载到页面时，才会执行初始化
     let that = this;
@@ -53,6 +68,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    update() {
+      const that = this
+      const page = this.data.currentPage
+      if(page.route == "pages/plan/createPlan/creatPlan"){
+        this.setData({
+          firstCon: wx.getStorageSync('myplan')
+        })
+      } else {
+        this.setData({
+          firstCon: wx.getStorageSync('myexpectation')
+        })
+      }
+    },
     /**
      * 内部方法
      * 初始化富文本方法
@@ -218,6 +246,22 @@ Component({
         }
       })
       that.triggerEvent('getDataList', list);
+      // 保存数据到缓存
+      if(that.data.currentPage.route == "pages/plan/createPlan/creatPlan"){
+        wx.setStorageSync('myplan', that.data.firstCon)
+      } else {
+        wx.setStorageSync('myexpectation', that.data.firstCon)
+      }
+      that.setData({
+        modal:true
+      })
+    },
+    hideModal() {
+      this.setData({
+        modal: false
+      })
     }
+    
   }
+  
 })

@@ -1,15 +1,15 @@
 {
   "pages": [
-    "pages/course/courselist/courselist",
-    "pages/course/coursepage/coursepage",
-    "pages/guidance/guidancelist/guidancelist",
-    "pages/guidance/guidancepage/guidancepage",
-    "pages/guidance/menu/menu",
-    "pages/course/menu/menu",
+    "pages/courselist/courselist",
+    "pages/text/coursepage",
+    "pages/guidancelist/guidancelist",
+    "pages/menu/menu",
     "pages/plan/index/index",
-    "pages/guidance/player/player",
+    "pages/player/player",
     "pages/plan/createPlan/creatPlan",
-    "pages/plan/expectation/expectation"
+    "pages/plan/expectation/expectation",
+    "pages/plan/questionnaire/questionnaire",
+    "pages/plan/questionMenu/questionMenu"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,11 +23,11 @@
     "list": [
       {
         "text": "课程列表",
-        "pagePath": "pages/course/courselist/courselist"
+        "pagePath": "pages/courselist/courselist"
       },
       {
         "text": "指导列表",
-        "pagePath": "pages/guidance/guidancelist/guidancelist"
+        "pagePath": "pages/guidancelist/guidancelist"
       },
       {
         "text": "个人计划",

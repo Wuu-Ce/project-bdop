@@ -14,6 +14,10 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const clone = function(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
 module.exports = {
-  formatTime
+  clone, formatTime
 }

@@ -1,4 +1,4 @@
-<cu-custom bgColorV="#fed2fc" isBack="{{true}}" style="margin-top: 50px;">
+<cu-custom bgColorV="#eee5f8" isBack="{{true}}" style="margin-top: 50px;">
   <view slot="backText">个人计划</view>
   <view slot="content">我的分娩预期</view>
 </cu-custom>
@@ -14,16 +14,16 @@
   <view class="cu-card case">
     <view class=" cu-item shadow">
       <view class="margin-tb">
-        <richedit></richedit>
+        <richedit currentPage="{{currentPage}}" id="richedit"></richedit>
       </view>
     </view>
   </view>
 
-  <view class="padding-left-sm padding-top-sm text-xl  text-pink">
+  <view class="padding-left-sm padding-top-sm  text-pink">
     <view class='action'>
-      <text class='cuIcon-titles text-orange '></text> 温馨提示
+      <text class='cuIcon-titles text-orange text-xl '></text> 温馨提示
     </view>
-    <view class="padding-top-sm padding-left-xl text-sm text-sm  text-pink">你可以在这里写下自己对于将要出生的小宝宝的盼望以及面对分娩的心情，通过书面表达自己此时此刻的心态，为即将到来的分娩做好准备。</view>
+    <view class="padding-top-sm mrign-right padding-lr-xl   text-pink">你可以在这里写下自己对于将要出生的小宝宝的盼望以及面对分娩的心情，通过书面表达自己此时此刻的心态，为即将到来的分娩做好准备。</view>
     <!-- <view class="padding-top-sm padding-left-xl text-sm">1. 我分娩时，您希望丈夫陪在身边。</view>
     <view class="padding-top-sm padding-left-xl text-sm ">2. 我不想让实习助产士为我检查和接生。</view>
     <view class="padding-top-sm padding-left-xl text-sm ">3. 有加速分娩过程的方法吗？有的话，我愿意尝试。</view>

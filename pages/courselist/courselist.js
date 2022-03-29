@@ -2,7 +2,7 @@
 //   SuchThat
 // } = require("../../../towxml/parse/parse2/entities/maps/entities");
 
-import Notify from '../../../miniprogram_npm/@vant/weapp/notify/notify';
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 
 const app = getApp()
 Page({
@@ -11,17 +11,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    course: [
-
-    ],
+    course: {},
     test: {},
     list: [{
         title: "课程",
-        items: [{
-          name: "test",
-          imageUrl: '',
-          hits: 3
-        }],
+        items: [],
       },
       {
         title: '练习',
@@ -43,7 +37,7 @@ Page({
     const that = this
     this.setData({
       tabOffsetTop: app.globalData.CustomBar,
-      tabContainerHeight: app.globalData.screenHeight - app.globalData.CustomBar - 120,
+      tabContainerHeight: app.globalData.screenHeight - app.globalData.CustomBar - 100,
       tabContainer: () => wx.createSelectorQuery().select('#container'),
     });
     // List1 模块一列表
@@ -57,7 +51,7 @@ Page({
         list: 1
       },
       success(res) {
-        if (res.data == Array) {
+        if ( typeof res.data == 'object') {
           that.setData({
             course: res.data
           })
@@ -73,7 +67,6 @@ Page({
             ],
           })
         }
-
       },
       fail(e) {
         Notify({
@@ -83,7 +76,7 @@ Page({
       }
     })
 
-    // List2 模块er列表
+    // List2 模块二列表
     wx.request({
       url: app.globalData.http + '/article/',
       method: 'POST',
@@ -94,7 +87,7 @@ Page({
         list: 2
       },
       success(res) {
-        if (res.data == Array) {
+        if (typeof res.data == 'object') {
           that.setData({
             test: res.data
           })
@@ -124,14 +117,15 @@ Page({
 
   },
   toMenu(e) {
-    console.log(e)
+    const active = this.data.tabActive 
+    let from = active?'test':'course'
     const index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: 'pages/course/menu/menu?index0=' + this.data.tabActive + '&index1=' + index
+      url: '/pages/menu/menu?from=' + from + '&index=' + index
     })
   },
   onTabSroll(e) {
-    console.log(e)
+
   },
   /**
    * 生命周期函数--监听页面显示
@@ -177,11 +171,6 @@ Page({
 
   },
   touchStart: function (e) {
-    Notify({
-      type: 'danger',
-      message: '无法链接到服务器',
-      selector: '#van-notify'
-    })
     // console.log(e.touches[0].pageX)
     let sx = e.touches[0].pageX
     let sy = e.touches[0].pageY
@@ -196,12 +185,12 @@ Page({
     const X = this.data.touchE[0] - this.data.touchS[0]
     let deltaY = this.data.touchE[1] - this.data.touchS[1]
     deltaY = deltaY < 0 ? -deltaY : deltaY
-    if (X > 50 && deltaY < 50 && this.data.tabActive > 0) {
+    if (X > 50 && deltaY < 100 && this.data.tabActive > 0) {
       // 右滑
       this.setData({
         tabActive: this.data.tabActive - 1
       })
-    } else if (X < -50 && deltaY < 50 && this.data.tabActive < this.data.list.length) {
+    } else if (X < -50 && deltaY < 100 && this.data.tabActive < this.data.list.length) {
       // 左滑
       this.setData({
         tabActive: this.data.tabActive + 1

@@ -13,9 +13,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const pages = getCurrentPages();
+    const Page = pages[pages.length - 1];//当前页
+
     this.setData({
-      srcollHeight: app.globalData.systemInfo.windowHeight - app.globalData.CustomBar
+      srcollHeight: app.globalData.systemInfo.windowHeight - app.globalData.CustomBar,
+      currentPage: Page
     })
+
+    this.ricedit = this.selectComponent('#richedit')
+    this.ricedit.update()
   },
 
   /**

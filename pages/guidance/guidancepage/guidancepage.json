@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "towxml":"/towxml/towxml",
-    "van-loading": "@vant/weapp/loading/index"
-  }
-}
